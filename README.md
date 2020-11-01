@@ -66,6 +66,10 @@ When this procedure returns, `GENERATOR` is positioned after the
 request line, at the first byte of headers or in the case when there
 is no headers, upon a return byte.
 
+## `(http-request-line-write accumulator method uri version)`
+
+TODO
+
 ## `(http-response-line-read generator)`
 
 `GENERATOR` must generate one byte at a time.  `http-response-line-read`
@@ -82,11 +86,17 @@ is no headers, upon a return byte.
 **Note:** This procedure will read what is called "status line" in
 RFCXYZ.
 
+## `(http-response-line-write accumulator version code reason)`
+
+TODO
+
 ## `(http-headers-read generator)`
 
 `GENERATOR` must generate one byte at a time.  `http-headers-read`
 returns an association list of string key-value pairs, where string
 values have space trimmed both on the left and on the right.
+
+## `(http-headers-write accumulator headers)`
 
 ## `(http-chunks-generator generator)`
 
@@ -109,37 +119,17 @@ response.
 generator that generates one byte at a time of a chunked body. It will
 ignore chunk extensions and trailing headers.
 
-## `(http-request-line-write accumulator method uri version)`
-
-TODO
-
-## `(http-response-line-write accumulator method uri version)`
-
-TODO
-
-## `(http-headers-write accumulator headers)`
-
-TODO
-
-## `(http-chunks-accumulator accumulator length)`
+## `(http-chunk accumulator bytevector)`
 
 TODO
 
 ## `(http-request-read generator)`
 
-TODO
-
 ## `(http-request-write accumulator method uri version headers body)`
-
-TODO
 
 ## `(http-response-read generator)`
 
-TODO
-
-## `(http-response-write accumulator version status reason headers body)`
-
-TODO
+## `(http-response-write accumulator version status-code reason headers body)`
 
 # Implementation
 
