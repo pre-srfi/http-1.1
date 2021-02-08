@@ -1,5 +1,4 @@
-(library (arew network http)
-
+(define-library (arew network http)
   (export http-error?
           http-error-message
           http-error-payload
@@ -23,7 +22,6 @@
           (scheme fixnum))
 
   (begin
-
     (define-record-type <http-error>
       (make-http-error message payload)
       http-error?
@@ -339,7 +337,7 @@
 
     (define (http-chunked-body-generator generator)
 
-      (define chunks)
+      (define chunks #f)
 
       (define (next-chunk)
         (call-with-values chunks
